@@ -13,7 +13,7 @@ use srag\Plugins\H5P\Cron\H5PCron;
  *
  * @package srag\Plugins\H5PCron\Job
  *
- * @author  studer + raimann ag <support-custom1@studer-raimann.ch>
+ * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
 class H5PCronJob extends ilCronJob {
 
