@@ -5,7 +5,7 @@ This files should be cleaned up from time to time.
 
 We recommend you to use this cron job plugin.
 
-This cron job also refresh hub in background.
+This cron job also refresh H5P hub in background.
 
 ## Installation
 
