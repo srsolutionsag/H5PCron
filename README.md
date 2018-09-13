@@ -1,3 +1,10 @@
+## Info
+H5P may accumulate temporary files.
+
+This files should be cleaned up from time to time.
+
+We recommend you to use this cron job plugin.
+
 ## Installation
 
 First install and enable [H5P repository plugin](https://github.com/studer-raimann/H5P).
