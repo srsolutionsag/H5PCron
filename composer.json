@@ -31,5 +31,10 @@
     "classmap": [
       "classes/"
     ]
+  },
+  "config": {
+    "classmap-authoritative": true,
+    "optimize-autoloader": true,
+    "sort-packages": true
   }
 }
