@@ -3,8 +3,8 @@
 require_once __DIR__ . "/../../../../Repository/RepositoryObject/H5P/vendor/autoload.php";
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use srag\RemovePluginDataConfirm\PluginUninstallTrait;
 use srag\Plugins\H5PCron\Job\H5PCronJob;
+use srag\RemovePluginDataConfirm\PluginUninstallTrait;
 
 /**
  * Class ilH5PCronPlugin
@@ -80,7 +80,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin {
 	/**
 	 * @inheritdoc
 	 */
-	protected function deleteData() {
+	protected function deleteData()/*: void*/ {
 		// Nothing to delete
 	}
 }
