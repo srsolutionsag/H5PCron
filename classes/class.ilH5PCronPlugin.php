@@ -3,7 +3,7 @@
 require_once __DIR__ . "/../../../../Repository/RepositoryObject/H5P/vendor/autoload.php";
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use srag\Plugins\H5P\Utitls\H5PTrait;
+use srag\Plugins\H5P\Utils\H5PTrait;
 use srag\Plugins\H5PCron\Job\H5PCronJob;
 use srag\RemovePluginDataConfirm\PluginUninstallTrait;
 
