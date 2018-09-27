@@ -3,6 +3,7 @@
 require_once __DIR__ . "/../../../../Repository/RepositoryObject/H5P/vendor/autoload.php";
 require_once __DIR__ . "/../vendor/autoload.php";
 
+use srag\Plugins\H5P\Utitls\H5PTrait;
 use srag\Plugins\H5PCron\Job\H5PCronJob;
 use srag\RemovePluginDataConfirm\PluginUninstallTrait;
 
@@ -13,7 +14,11 @@ use srag\RemovePluginDataConfirm\PluginUninstallTrait;
  */
 class ilH5PCronPlugin extends ilCronHookPlugin {
 
-	use PluginUninstallTrait;
+	use H5PTrait, PluginUninstallTrait {
+		H5PTrait::dic insteadof PluginUninstallTrait;
+		H5PTrait::plugin insteadof PluginUninstallTrait;
+		H5PTrait::checkPluginClassNameConst insteadof PluginUninstallTrait;
+	}
 	const PLUGIN_ID = "h5pcron";
 	const PLUGIN_NAME = "H5PCron";
 	const PLUGIN_CLASS_NAME = self::class;
