@@ -5,6 +5,7 @@ namespace srag\Plugins\H5PCron\Job;
 use ilCronJob;
 use ilCronJobResult;
 use ilH5PCronPlugin;
+use srag\DIC\DICTrait;
 use srag\Plugins\H5P\Cron\H5PCron;
 use srag\Plugins\H5P\Utils\H5PTrait;
 
@@ -17,6 +18,7 @@ use srag\Plugins\H5P\Utils\H5PTrait;
  */
 class H5PCronJob extends ilCronJob {
 
+	use DICTrait;
 	use H5PTrait;
 	const CRON_JOB_ID = ilH5PCronPlugin::PLUGIN_ID;
 	const PLUGIN_CLASS_NAME = ilH5PCronPlugin::class;

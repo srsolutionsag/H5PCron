@@ -14,11 +14,8 @@ use srag\RemovePluginDataConfirm\PluginUninstallTrait;
  */
 class ilH5PCronPlugin extends ilCronHookPlugin {
 
-	use H5PTrait, PluginUninstallTrait {
-		H5PTrait::dic insteadof PluginUninstallTrait;
-		H5PTrait::plugin insteadof PluginUninstallTrait;
-		H5PTrait::checkPluginClassNameConst insteadof PluginUninstallTrait;
-	}
+	use PluginUninstallTrait;
+	use H5PTrait;
 	const PLUGIN_ID = "h5pcron";
 	const PLUGIN_NAME = "H5PCron";
 	const PLUGIN_CLASS_NAME = self::class;
