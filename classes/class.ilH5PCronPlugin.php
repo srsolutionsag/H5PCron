@@ -4,7 +4,7 @@ require_once __DIR__ . "/../../../../Repository/RepositoryObject/H5P/vendor/auto
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use srag\Plugins\H5P\Utils\H5PTrait;
-use srag\Plugins\H5PCron\Job\H5PCronJob;
+use srag\Plugins\H5PCron\Job\Job;
 use srag\RemovePluginDataConfirm\PluginUninstallTrait;
 
 /**
@@ -59,7 +59,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin {
 	 * @return ilCronJob[]
 	 */
 	public function getCronJobInstances() {
-		return [ new H5PCronJob() ];
+		return [ new Job() ];
 	}
 
 
@@ -70,8 +70,8 @@ class ilH5PCronPlugin extends ilCronHookPlugin {
 	 */
 	public function getCronJobInstance($a_job_id) {
 		switch ($a_job_id) {
-			case H5PCronJob::CRON_JOB_ID:
-				return new H5PCronJob();
+			case Job::CRON_JOB_ID:
+				return new Job();
 
 			default:
 				return NULL;

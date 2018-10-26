@@ -6,17 +6,17 @@ use ilCronJob;
 use ilCronJobResult;
 use ilH5PCronPlugin;
 use srag\DIC\DICTrait;
-use srag\Plugins\H5P\Cron\H5PCron;
+use srag\Plugins\H5P\Cron\Cron;
 use srag\Plugins\H5P\Utils\H5PTrait;
 
 /**
- * Class H5PCronJob
+ * Class Job
  *
  * @package srag\Plugins\H5PCron\Job
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class H5PCronJob extends ilCronJob {
+class Job extends ilCronJob {
 
 	use DICTrait;
 	use H5PTrait;
@@ -25,7 +25,7 @@ class H5PCronJob extends ilCronJob {
 
 
 	/**
-	 * H5PCronJob constructor
+	 * Job constructor
 	 */
 	public function __construct() {
 
@@ -104,7 +104,7 @@ class H5PCronJob extends ilCronJob {
 	 * @return ilCronJobResult
 	 */
 	public function run() {
-		$cron = new H5PCron();
+		$cron = new Cron();
 
 		$result = $cron->run();
 

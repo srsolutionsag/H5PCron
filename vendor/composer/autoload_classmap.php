@@ -7,5 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'ilH5PCronPlugin' => $baseDir . '/classes/class.ilH5PCronPlugin.php',
-    'srag\\Plugins\\H5PCron\\Job\\H5PCronJob' => $baseDir . '/src/Job/H5PCronJob.php',
+    'srag\\Plugins\\H5PCron\\Job\\Job' => $baseDir . '/src/Job/Job.php',
 );

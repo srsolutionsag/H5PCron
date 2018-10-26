@@ -22,7 +22,7 @@ class ComposerStaticInit1ce8e39467b28a745351043e28c93faa
 
     public static $classMap = array (
         'ilH5PCronPlugin' => __DIR__ . '/../..' . '/classes/class.ilH5PCronPlugin.php',
-        'srag\\Plugins\\H5PCron\\Job\\H5PCronJob' => __DIR__ . '/../..' . '/src/Job/H5PCronJob.php',
+        'srag\\Plugins\\H5PCron\\Job\\Job' => __DIR__ . '/../..' . '/src/Job/Job.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
