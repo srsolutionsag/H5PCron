@@ -49,7 +49,7 @@ class RefreshHubJob extends ilCronJob {
 	 */
 	public function getTitle() {
 		return ilH5PCronPlugin::PLUGIN_NAME . ": " . DICStatic::plugin(ilH5PPlugin::PLUGIN_CLASS_NAME)
-				->translate("refresh_hub", Cron::CRON_LANG_MODULE);
+				->translate("refresh_hub", Cron::LANG_MODULE_CRON);
 	}
 
 
@@ -57,7 +57,7 @@ class RefreshHubJob extends ilCronJob {
 	 * @return string
 	 */
 	public function getDescription() {
-		return DICStatic::plugin(ilH5PPlugin::PLUGIN_CLASS_NAME)->translate("refresh_hub_description", Cron::CRON_LANG_MODULE);
+		return DICStatic::plugin(ilH5PPlugin::PLUGIN_CLASS_NAME)->translate("refresh_hub_description", Cron::LANG_MODULE_CRON);
 	}
 
 

@@ -67,7 +67,7 @@ class PageComponentJob extends ilCronJob {
 	 */
 	public function getTitle() {
 		return ilH5PCronPlugin::PLUGIN_NAME . ": " . DICStatic::plugin(ilH5PPlugin::PLUGIN_CLASS_NAME)
-				->translate("page_component", Cron::CRON_LANG_MODULE);
+				->translate("page_component", Cron::LANG_MODULE_CRON);
 	}
 
 
@@ -77,8 +77,8 @@ class PageComponentJob extends ilCronJob {
 	 * @deprecated since ILIAS 5.3
 	 */
 	public function getDescription() {
-		return DICStatic::plugin(ilH5PPlugin::PLUGIN_CLASS_NAME)->translate("page_component_description", Cron::CRON_LANG_MODULE) . "<br><br>"
-			. DICStatic::plugin(ilH5PPlugin::PLUGIN_CLASS_NAME)->translate("page_component_description_deprecated", Cron::CRON_LANG_MODULE);
+		return DICStatic::plugin(ilH5PPlugin::PLUGIN_CLASS_NAME)->translate("page_component_description", Cron::LANG_MODULE_CRON) . "<br><br>"
+			. DICStatic::plugin(ilH5PPlugin::PLUGIN_CLASS_NAME)->translate("page_component_description_deprecated", Cron::LANG_MODULE_CRON);
 	}
 
 

@@ -49,7 +49,7 @@ class DeleteOldEventsJob extends ilCronJob {
 	 */
 	public function getTitle() {
 		return ilH5PCronPlugin::PLUGIN_NAME . ": " . DICStatic::plugin(ilH5PPlugin::PLUGIN_CLASS_NAME)
-				->translate("delete_old_events", Cron::CRON_LANG_MODULE);
+				->translate("delete_old_events", Cron::LANG_MODULE_CRON);
 	}
 
 
@@ -57,7 +57,7 @@ class DeleteOldEventsJob extends ilCronJob {
 	 * @return string
 	 */
 	public function getDescription() {
-		return DICStatic::plugin(ilH5PPlugin::PLUGIN_CLASS_NAME)->translate("delete_old_events_description", Cron::CRON_LANG_MODULE);
+		return DICStatic::plugin(ilH5PPlugin::PLUGIN_CLASS_NAME)->translate("delete_old_events_description", Cron::LANG_MODULE_CRON);
 	}
 
 
