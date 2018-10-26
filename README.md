@@ -5,7 +5,9 @@ This files should be cleaned up from time to time.
 
 We recommend you to use this cron job plugin.
 
-This cron job also refresh H5P hub in background.
+This cron job also refresh H5P hub list in background.
+
+And delete H5P contents from deleted H5P page components (Only needed for ILIAS 5.2 because newer ILIAS versions supports it native :).
 
 ## Installation
 
@@ -19,6 +21,8 @@ cd Customizing/global/plugins/Services/Cron/CronHook
 git clone https://github.com/studer-raimann/H5PCron.git H5PCron
 ```
 Update and activate the plugin in the ILIAS Plugin Administration
+
+Also have a look to [H5PCron](https://github.com/studer-raimann/H5PCron).
 
 ### Dependencies
 * ILIAS 5.2 or ILIAS 5.3

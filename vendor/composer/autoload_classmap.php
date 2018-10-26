@@ -7,5 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'ilH5PCronPlugin' => $baseDir . '/classes/class.ilH5PCronPlugin.php',
-    'srag\\Plugins\\H5PCron\\Job\\Job' => $baseDir . '/src/Job/Job.php',
+    'srag\\Plugins\\H5PCron\\Job\\DeleteOldEventsJob' => $baseDir . '/src/Job/DeleteOldEventsJob.php',
+    'srag\\Plugins\\H5PCron\\Job\\DeleteOldTmpFilesJob' => $baseDir . '/src/Job/DeleteOldTmpFilesJob.php',
+    'srag\\Plugins\\H5PCron\\Job\\PageComponentJob' => $baseDir . '/src/Job/PageComponentJob.php',
+    'srag\\Plugins\\H5PCron\\Job\\RefreshHubJob' => $baseDir . '/src/Job/RefreshHubJob.php',
 );

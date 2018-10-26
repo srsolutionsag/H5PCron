@@ -5,27 +5,29 @@ namespace srag\Plugins\H5PCron\Job;
 use ilCronJob;
 use ilCronJobResult;
 use ilH5PCronPlugin;
+use ilH5PPlugin;
+use srag\DIC\DICStatic;
 use srag\DIC\DICTrait;
 use srag\Plugins\H5P\Cron\Cron;
 use srag\Plugins\H5P\Utils\H5PTrait;
 
 /**
- * Class Job
+ * Class RefreshHubJob
  *
  * @package srag\Plugins\H5PCron\Job
  *
  * @author  studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
  */
-class Job extends ilCronJob {
+class RefreshHubJob extends ilCronJob {
 
 	use DICTrait;
 	use H5PTrait;
-	const CRON_JOB_ID = ilH5PCronPlugin::PLUGIN_ID;
+	const CRON_JOB_ID = ilH5PCronPlugin::PLUGIN_ID . "_refresh_hub";
 	const PLUGIN_CLASS_NAME = ilH5PCronPlugin::class;
 
 
 	/**
-	 * Job constructor
+	 * RefreshHubJob constructor
 	 */
 	public function __construct() {
 
@@ -46,7 +48,8 @@ class Job extends ilCronJob {
 	 * @return string
 	 */
 	public function getTitle() {
-		return ilH5PCronPlugin::PLUGIN_NAME;
+		return ilH5PCronPlugin::PLUGIN_NAME . ": " . DICStatic::plugin(ilH5PPlugin::PLUGIN_CLASS_NAME)
+				->translate("refresh_hub", Cron::CRON_LANG_MODULE);
 	}
 
 
@@ -54,7 +57,7 @@ class Job extends ilCronJob {
 	 * @return string
 	 */
 	public function getDescription() {
-		return "";
+		return DICStatic::plugin(ilH5PPlugin::PLUGIN_CLASS_NAME)->translate("refresh_hub_description", Cron::CRON_LANG_MODULE);
 	}
 
 
@@ -106,7 +109,7 @@ class Job extends ilCronJob {
 	public function run() {
 		$cron = new Cron();
 
-		$result = $cron->run();
+		$result = $cron->refreshHub();
 
 		return $result;
 	}
