@@ -3,11 +3,11 @@
 require_once __DIR__ . "/../../../../Repository/RepositoryObject/H5P/vendor/autoload.php";
 require_once __DIR__ . "/../vendor/autoload.php";
 
+use srag\Plugins\H5P\Job\DeleteOldEventsJob;
+use srag\Plugins\H5P\Job\DeleteOldTmpFilesJob;
+use srag\Plugins\H5P\Job\RefreshHubJob;
 use srag\Plugins\H5P\Utils\H5PTrait;
-use srag\Plugins\H5PCron\Job\DeleteOldEventsJob;
-use srag\Plugins\H5PCron\Job\DeleteOldTmpFilesJob;
-use srag\Plugins\H5PCron\Job\PageComponentJob;
-use srag\Plugins\H5PCron\Job\RefreshHubJob;
+use srag\Plugins\H5PPageComponent\Job\PageComponentJob;
 use srag\RemovePluginDataConfirm\PluginUninstallTrait;
 
 /**
@@ -62,7 +62,18 @@ class ilH5PCronPlugin extends ilCronHookPlugin {
 	 * @return ilCronJob[]
 	 */
 	public function getCronJobInstances() {
-		return [ new RefreshHubJob(), new DeleteOldTmpFilesJob(), new DeleteOldEventsJob(), new PageComponentJob() ];
+		$jobs = [ new RefreshHubJob(), new DeleteOldTmpFilesJob(), new DeleteOldEventsJob() ];
+
+		try {
+			include_once __DIR__ . "/../../../../COPage/PageComponent/H5PPageComponent/vendor/autoload.php";
+
+			if (class_exists(PageComponentJob::class)) {
+				array_push($jobs, new PageComponentJob());
+			}
+		} catch (Throwable $ex) {
+		}
+
+		return $jobs;
 	}
 
 
@@ -72,6 +83,17 @@ class ilH5PCronPlugin extends ilCronHookPlugin {
 	 * @return ilCronJob|null
 	 */
 	public function getCronJobInstance($a_job_id) {
+		try {
+			include_once __DIR__ . "/../../../../COPage/PageComponent/H5PPageComponent/vendor/autoload.php";
+
+			if (class_exists(PageComponentJob::class)) {
+				if ($a_job_id === PageComponentJob::CRON_JOB_ID) {
+					return new PageComponentJob();
+				}
+			}
+		} catch (Throwable $ex) {
+		}
+
 		switch ($a_job_id) {
 			case RefreshHubJob::CRON_JOB_ID:
 				return new RefreshHubJob();
@@ -81,9 +103,6 @@ class ilH5PCronPlugin extends ilCronHookPlugin {
 
 			case DeleteOldEventsJob::CRON_JOB_ID:
 				return new DeleteOldEventsJob();
-
-			case PageComponentJob::CRON_JOB_ID:
-				return new PageComponentJob();
 
 			default:
 				return NULL;
