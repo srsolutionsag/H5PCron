@@ -21,7 +21,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin {
 	use H5PTrait;
 	const PLUGIN_ID = "h5pcron";
 	const PLUGIN_NAME = "H5PCron";
-	const PLUGIN_CLASS_NAME = self::class;
+	const PLUGIN_CLASS_NAME = ilH5PPlugin::class;
 	const REMOVE_PLUGIN_DATA_CONFIRM = false;
 	const REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME = H5PRemoveDataConfirm::class;
 	/**
