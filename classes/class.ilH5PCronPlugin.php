@@ -8,7 +8,7 @@ use srag\Plugins\H5P\Job\DeleteOldTmpFilesJob;
 use srag\Plugins\H5P\Job\RefreshHubJob;
 use srag\Plugins\H5P\Utils\H5PTrait;
 use srag\Plugins\H5PPageComponent\Job\PageComponentJob;
-use srag\RemovePluginDataConfirm\PluginUninstallTrait;
+use srag\RemovePluginDataConfirm\H5P\PluginUninstallTrait;
 
 /**
  * Class ilH5PCronPlugin
