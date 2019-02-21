@@ -28,7 +28,8 @@
       "srag\\Plugins\\H5PCron\\": "src/"
     },
     "classmap": [
-      "classes/"
+      "classes/",
+      "../../../../../../../Services/Cron/classes/class.ilCronHookPlugin.php"
     ]
   },
   "config": {
