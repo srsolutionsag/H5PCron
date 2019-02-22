@@ -29,7 +29,9 @@
     },
     "classmap": [
       "classes/",
-      "../../../../../../../Services/Cron/classes/class.ilCronHookPlugin.php"
+      "../../../../../../../Services/Cron/classes/class.ilCronHookPlugin.php",
+      "../../../../../../../Services/Cron/classes/class.ilCronJob.php",
+      "../../../../../../../Services/Cron/classes/class.ilCronJobResult.php"
     ]
   },
   "config": {
