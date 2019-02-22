@@ -7,5 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'ilCronHookPlugin' => $baseDir . '/../../../../../../../Services/Cron/classes/class.ilCronHookPlugin.php',
+    'ilCronJob' => $baseDir . '/../../../../../../../Services/Cron/classes/class.ilCronJob.php',
+    'ilCronJobResult' => $baseDir . '/../../../../../../../Services/Cron/classes/class.ilCronJobResult.php',
     'ilH5PCronPlugin' => $baseDir . '/classes/class.ilH5PCronPlugin.php',
 );
