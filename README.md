@@ -22,8 +22,6 @@ git clone https://github.com/studer-raimann/H5PCron.git H5PCron
 ```
 Update and activate the plugin in the ILIAS Plugin Administration
 
-Also have a look to [H5PPageComponent](https://github.com/studer-raimann/H5PPageComponent).
-
 ### Some screenshots
 Cron:
 ![Cron](./doc/screenshots/cron.png)
