@@ -29,7 +29,7 @@ Cron:
 ![Cron](./doc/screenshots/cron.png)
 
 ### Dependencies
-* ILIAS 5.2 or ILIAS 5.3
+* ILIAS 5.3 or ILIAS 5.4
 * PHP >=5.6
 * [composer](https://getcomposer.org)
 * [H5P repository plugin](https://github.com/studer-raimann/H5P)
