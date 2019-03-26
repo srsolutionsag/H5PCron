@@ -21,9 +21,6 @@ class ComposerStaticInit1ce8e39467b28a745351043e28c93faa
     );
 
     public static $classMap = array (
-        'ilCronHookPlugin' => __DIR__ . '/../..' . '/../../../../../../../Services/Cron/classes/class.ilCronHookPlugin.php',
-        'ilCronJob' => __DIR__ . '/../..' . '/../../../../../../../Services/Cron/classes/class.ilCronJob.php',
-        'ilCronJobResult' => __DIR__ . '/../..' . '/../../../../../../../Services/Cron/classes/class.ilCronJobResult.php',
         'ilH5PCronPlugin' => __DIR__ . '/../..' . '/classes/class.ilH5PCronPlugin.php',
     );
 
