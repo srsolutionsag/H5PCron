@@ -7,7 +7,6 @@ use srag\Plugins\H5P\Job\DeleteOldEventsJob;
 use srag\Plugins\H5P\Job\DeleteOldTmpFilesJob;
 use srag\Plugins\H5P\Job\RefreshHubJob;
 use srag\Plugins\H5P\Utils\H5PTrait;
-use srag\Plugins\H5PPageComponent\Job\PageComponentJob;
 use srag\RemovePluginDataConfirm\H5P\PluginUninstallTrait;
 
 /**
@@ -27,14 +26,14 @@ class ilH5PCronPlugin extends ilCronHookPlugin {
 	/**
 	 * @var self|null
 	 */
-	protected static $instance = NULL;
+	protected static $instance = null;
 
 
 	/**
 	 * @return self
 	 */
 	public static function getInstance() {
-		if (self::$instance === NULL) {
+		if (self::$instance === null) {
 			self::$instance = new self();
 		}
 
@@ -62,18 +61,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin {
 	 * @return ilCronJob[]
 	 */
 	public function getCronJobInstances() {
-		$jobs = [ new RefreshHubJob(), new DeleteOldTmpFilesJob(), new DeleteOldEventsJob() ];
-
-		try {
-			include_once __DIR__ . "/../../../../COPage/PageComponent/H5PPageComponent/vendor/autoload.php";
-
-			if (class_exists(PageComponentJob::class)) {
-				array_push($jobs, new PageComponentJob());
-			}
-		} catch (Throwable $ex) {
-		}
-
-		return $jobs;
+		return [ new RefreshHubJob(), new DeleteOldTmpFilesJob(), new DeleteOldEventsJob() ];
 	}
 
 
@@ -83,17 +71,6 @@ class ilH5PCronPlugin extends ilCronHookPlugin {
 	 * @return ilCronJob|null
 	 */
 	public function getCronJobInstance($a_job_id) {
-		try {
-			include_once __DIR__ . "/../../../../COPage/PageComponent/H5PPageComponent/vendor/autoload.php";
-
-			if (class_exists(PageComponentJob::class)) {
-				if ($a_job_id === PageComponentJob::CRON_JOB_ID) {
-					return new PageComponentJob();
-				}
-			}
-		} catch (Throwable $ex) {
-		}
-
 		switch ($a_job_id) {
 			case RefreshHubJob::CRON_JOB_ID:
 				return new RefreshHubJob();
@@ -105,7 +82,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin {
 				return new DeleteOldEventsJob();
 
 			default:
-				return NULL;
+				return null;
 		}
 	}
 

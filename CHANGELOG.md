@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.1.0]
+- Supports ILIAS 5.4
+- Remove ILIAS 5.2 support
+
 ## [1.0.2]
 - Fix ILIAS 5.2
 
