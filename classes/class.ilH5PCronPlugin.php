@@ -7,7 +7,6 @@ use srag\Plugins\H5P\Job\DeleteOldEventsJob;
 use srag\Plugins\H5P\Job\DeleteOldTmpFilesJob;
 use srag\Plugins\H5P\Job\RefreshHubJob;
 use srag\Plugins\H5P\Utils\H5PTrait;
-use srag\RemovePluginDataConfirm\H5P\PluginUninstallTrait;
 
 /**
  * Class ilH5PCronPlugin
@@ -16,13 +15,10 @@ use srag\RemovePluginDataConfirm\H5P\PluginUninstallTrait;
  */
 class ilH5PCronPlugin extends ilCronHookPlugin {
 
-	use PluginUninstallTrait;
 	use H5PTrait;
 	const PLUGIN_ID = "h5pcron";
 	const PLUGIN_NAME = "H5PCron";
 	const PLUGIN_CLASS_NAME = ilH5PPlugin::class;
-	const REMOVE_PLUGIN_DATA_CONFIRM = false;
-	const REMOVE_PLUGIN_DATA_CONFIRM_CLASS_NAME = H5PRemoveDataConfirm::class;
 	/**
 	 * @var self|null
 	 */
@@ -84,13 +80,5 @@ class ilH5PCronPlugin extends ilCronHookPlugin {
 			default:
 				return null;
 		}
-	}
-
-
-	/**
-	 * @inheritdoc
-	 */
-	protected function deleteData()/*: void*/ {
-		// Nothing to delete
 	}
 }
