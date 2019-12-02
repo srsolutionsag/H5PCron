@@ -9,8 +9,6 @@ We recommend you to use this cron job plugin.
 
 This cron job also refresh H5P hub list in background.
 
-And delete H5P contents from deleted H5P page components (Only needed for ILIAS 5.2 because newer ILIAS versions supports it native :).
-
 ## Installation
 
 First install and enable [H5P repository plugin](https://github.com/studer-raimann/H5P).
