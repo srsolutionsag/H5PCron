@@ -1,7 +1,7 @@
 # Changelog
 
 ## [1.1.1]
-- Fix
+- Some improvments
 
 ## [1.1.0]
 - Supports ILIAS 5.4
