@@ -3,6 +3,7 @@
 require_once __DIR__ . "/../../../../Repository/RepositoryObject/H5P/vendor/autoload.php";
 require_once __DIR__ . "/../vendor/autoload.php";
 
+use srag\DIC\H5P\DICTrait;
 use srag\Plugins\H5P\Job\DeleteOldEventsJob;
 use srag\Plugins\H5P\Job\DeleteOldTmpFilesJob;
 use srag\Plugins\H5P\Job\RefreshHubJob;
@@ -16,6 +17,7 @@ use srag\Plugins\H5P\Utils\H5PTrait;
 class ilH5PCronPlugin extends ilCronHookPlugin
 {
 
+    use DICTrait;
     use H5PTrait;
     const PLUGIN_ID = "h5pcron";
     const PLUGIN_NAME = "H5PCron";
