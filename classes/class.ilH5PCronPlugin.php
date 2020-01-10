@@ -3,6 +3,7 @@
 require_once __DIR__ . "/../../../../Repository/RepositoryObject/H5P/vendor/autoload.php";
 require_once __DIR__ . "/../vendor/autoload.php";
 
+use srag\DIC\H5P\DICTrait;
 use srag\Plugins\H5P\Job\DeleteOldEventsJob;
 use srag\Plugins\H5P\Job\DeleteOldTmpFilesJob;
 use srag\Plugins\H5P\Job\RefreshHubJob;
@@ -16,6 +17,7 @@ use srag\Plugins\H5P\Utils\H5PTrait;
 class ilH5PCronPlugin extends ilCronHookPlugin
 {
 
+    use DICTrait;
     use H5PTrait;
     const PLUGIN_ID = "h5pcron";
     const PLUGIN_NAME = "H5PCron";
@@ -29,7 +31,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin
     /**
      * @return self
      */
-    public static function getInstance()
+    public static function getInstance()/*:self*/
     {
         if (self::$instance === null) {
             self::$instance = new self();
@@ -49,29 +51,27 @@ class ilH5PCronPlugin extends ilCronHookPlugin
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
-    public function getPluginName()
+    public function getPluginName()/*:string*/
     {
         return self::PLUGIN_NAME;
     }
 
 
     /**
-     * @return ilCronJob[]
+     * @inheritDoc
      */
-    public function getCronJobInstances()
+    public function getCronJobInstances()/*:array*/
     {
         return [new RefreshHubJob(), new DeleteOldTmpFilesJob(), new DeleteOldEventsJob()];
     }
 
 
     /**
-     * @param string $a_job_id
-     *
-     * @return ilCronJob|null
+     * @inheritDoc
      */
-    public function getCronJobInstance($a_job_id)
+    public function getCronJobInstance(/*string*/ $a_job_id)/*: ?ilCronJob*/
     {
         switch ($a_job_id) {
             case RefreshHubJob::CRON_JOB_ID:
