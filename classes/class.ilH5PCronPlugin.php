@@ -31,7 +31,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin
     /**
      * @return self
      */
-    public static function getInstance()
+    public static function getInstance()/*:self*/
     {
         if (self::$instance === null) {
             self::$instance = new self();
@@ -51,29 +51,27 @@ class ilH5PCronPlugin extends ilCronHookPlugin
 
 
     /**
-     * @return string
+     * @inheritDoc
      */
-    public function getPluginName()
+    public function getPluginName()/*:string*/
     {
         return self::PLUGIN_NAME;
     }
 
 
     /**
-     * @return ilCronJob[]
+     * @inheritDoc
      */
-    public function getCronJobInstances()
+    public function getCronJobInstances()/*:array*/
     {
         return [new RefreshHubJob(), new DeleteOldTmpFilesJob(), new DeleteOldEventsJob()];
     }
 
 
     /**
-     * @param string $a_job_id
-     *
-     * @return ilCronJob|null
+     * @inheritDoc
      */
-    public function getCronJobInstance($a_job_id)
+    public function getCronJobInstance(/*string*/ $a_job_id)/*: ?ilCronJob*/
     {
         switch ($a_job_id) {
             case RefreshHubJob::CRON_JOB_ID:
