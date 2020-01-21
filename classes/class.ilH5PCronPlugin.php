@@ -4,9 +4,6 @@ require_once __DIR__ . "/../../../../Repository/RepositoryObject/H5P/vendor/auto
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use srag\DIC\H5P\DICTrait;
-use srag\Plugins\H5P\Job\DeleteOldEventsJob;
-use srag\Plugins\H5P\Job\DeleteOldTmpFilesJob;
-use srag\Plugins\H5P\Job\RefreshHubJob;
 use srag\Plugins\H5P\Utils\H5PTrait;
 
 /**
@@ -64,7 +61,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin
      */
     public function getCronJobInstances()/*:array*/
     {
-        return [new RefreshHubJob(), new DeleteOldTmpFilesJob(), new DeleteOldEventsJob()];
+        return self::h5p()->jobs()->factory()->newInstances();
     }
 
 
@@ -73,18 +70,6 @@ class ilH5PCronPlugin extends ilCronHookPlugin
      */
     public function getCronJobInstance(/*string*/ $a_job_id)/*: ?ilCronJob*/
     {
-        switch ($a_job_id) {
-            case RefreshHubJob::CRON_JOB_ID:
-                return new RefreshHubJob();
-
-            case DeleteOldTmpFilesJob::CRON_JOB_ID:
-                return new DeleteOldTmpFilesJob();
-
-            case DeleteOldEventsJob::CRON_JOB_ID:
-                return new DeleteOldEventsJob();
-
-            default:
-                return null;
-        }
+        return self::h5p()->jobs()->factory()->newInstanceById($a_job_id);
     }
 }
