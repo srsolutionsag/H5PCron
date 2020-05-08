@@ -1,1 +1,1 @@
-## H5PCron Documentation
+# H5PCron ILIAS Plugin Documentation

@@ -1,4 +1,4 @@
-## H5PCron Description
+# H5PCron ILIAS Plugin Description
 
 H5P may accumulate temporary files.
 
