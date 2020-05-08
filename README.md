@@ -1,19 +1,16 @@
 This is an OpenSource project by studer + raimann ag, CH-Burgdorf (https://studer-raimann.ch)
 
-## Info
-H5P may accumulate temporary files.
+## Description
+See in [doc/DESCRIPTION.md](./doc/DESCRIPTION.md)
 
-This files should be cleaned up from time to time.
-
-We recommend you to use this cron job plugin.
-
-This cron job also refresh H5P hub list in background.
+## Documentation
+See in [doc/DOCUMENTATION.md](./doc/DOCUMENTATION.md)
 
 ## Installation
 
-First install and enable [H5P repository plugin](https://github.com/studer-raimann/H5P).
+First install and enable [H5P Plugin](https://github.com/studer-raimann/H5P).
 
-### Install H5PCron-Plugin
+### Install H5PCron Plugin
 Start at your ILIAS root directory
 ```bash
 mkdir -p Customizing/global/plugins/Services/Cron/CronHook
@@ -21,10 +18,6 @@ cd Customizing/global/plugins/Services/Cron/CronHook
 git clone https://github.com/studer-raimann/H5PCron.git H5PCron
 ```
 Update and activate the plugin in the ILIAS Plugin Administration
-
-### Some screenshots
-Cron:
-![Cron](./doc/screenshots/cron.png)
 
 ### Requirements
 * ILIAS 5.3 or ILIAS 5.4
