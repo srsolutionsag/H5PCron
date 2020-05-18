@@ -28,7 +28,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin
     /**
      * @return self
      */
-    public static function getInstance()/*:self*/
+    public static function getInstance() : self
     {
         if (self::$instance === null) {
             self::$instance = new self();
@@ -50,7 +50,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    public function getPluginName()/*:string*/
+    public function getPluginName() : string
     {
         return self::PLUGIN_NAME;
     }
@@ -59,7 +59,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    public function getCronJobInstances()/*:array*/
+    public function getCronJobInstances() : array
     {
         return self::h5p()->jobs()->factory()->newInstances();
     }
