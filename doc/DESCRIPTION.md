@@ -1,12 +1,10 @@
 # H5PCron ILIAS Plugin Description
 
-H5P may accumulate temporary files.
+This is an additional Cronjob Plugin to the H5P RepositoryObject Plugin (https://github.com/studer-raimann/H5P), which executes different tasks to maintain the H5P objects and HUB. The plugin consists of the following cronjobs:
 
-This files should be cleaned up from time to time.
-
-We recommend you to use this cron job plugin.
-
-This cron job also refresh H5P hub list in background.
+- Delete old event logs
+- Delete old temp files
+- Refresh hub list
 
 Cron:
 ![Cron](./images/cron.png)
