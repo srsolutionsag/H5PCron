@@ -1,6 +1,5 @@
 <?php
 
-require_once __DIR__ . "/../../../../Repository/RepositoryObject/H5P/vendor/autoload.php";
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use srag\DIC\H5P\DICTrait;
@@ -16,6 +15,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin
 
     use DICTrait;
     use H5PTrait;
+
     const PLUGIN_ID = "h5pcron";
     const PLUGIN_NAME = "H5PCron";
     const PLUGIN_CLASS_NAME = ilH5PPlugin::class;
@@ -28,7 +28,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin
     /**
      * @return self
      */
-    public static function getInstance()/*:self*/
+    public static function getInstance() : self
     {
         if (self::$instance === null) {
             self::$instance = new self();
@@ -50,7 +50,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    public function getPluginName()/*:string*/
+    public function getPluginName() : string
     {
         return self::PLUGIN_NAME;
     }
@@ -59,7 +59,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    public function getCronJobInstances()/*:array*/
+    public function getCronJobInstances() : array
     {
         return self::h5p()->jobs()->factory()->newInstances();
     }
