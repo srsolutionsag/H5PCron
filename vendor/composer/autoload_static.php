@@ -14,6 +14,7 @@ class ComposerStaticInit1ce8e39467b28a745351043e28c93faa
         's' => 
         array (
             'srag\\Plugins\\H5PCron\\' => 21,
+            'srag\\LibrariesNamespaceChanger\\' => 31,
         ),
     );
 
@@ -22,10 +23,19 @@ class ComposerStaticInit1ce8e39467b28a745351043e28c93faa
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
+        'srag\\LibrariesNamespaceChanger\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
+        ),
     );
 
     public static $classMap = array (
         'ilH5PCronPlugin' => __DIR__ . '/../..' . '/classes/class.ilH5PCronPlugin.php',
+        'srag\\LibrariesNamespaceChanger\\GeneratePluginPhp' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/GeneratePluginPhp.php',
+        'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
+        'srag\\LibrariesNamespaceChanger\\PHP72Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP72Backport.php',
+        'srag\\LibrariesNamespaceChanger\\PHP7Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP7Backport.php',
+        'srag\\LibrariesNamespaceChanger\\RemovePHP72Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/RemovePHP72Backport.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
