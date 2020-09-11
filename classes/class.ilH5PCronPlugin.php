@@ -16,13 +16,22 @@ class ilH5PCronPlugin extends ilCronHookPlugin
     use DICTrait;
     use H5PTrait;
 
+    const PLUGIN_CLASS_NAME = ilH5PPlugin::class;
     const PLUGIN_ID = "h5pcron";
     const PLUGIN_NAME = "H5PCron";
-    const PLUGIN_CLASS_NAME = ilH5PPlugin::class;
     /**
      * @var self|null
      */
     protected static $instance = null;
+
+
+    /**
+     * ilH5PCronPlugin constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
 
     /**
@@ -39,20 +48,11 @@ class ilH5PCronPlugin extends ilCronHookPlugin
 
 
     /**
-     * ilH5PCronPlugin constructor
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-
-    /**
      * @inheritDoc
      */
-    public function getPluginName() : string
+    public function getCronJobInstance(/*string*/ $a_job_id)/*: ?ilCronJob*/
     {
-        return self::PLUGIN_NAME;
+        return self::h5p()->jobs()->factory()->newInstanceById($a_job_id);
     }
 
 
@@ -68,8 +68,8 @@ class ilH5PCronPlugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
-    public function getCronJobInstance(/*string*/ $a_job_id)/*: ?ilCronJob*/
+    public function getPluginName() : string
     {
-        return self::h5p()->jobs()->factory()->newInstanceById($a_job_id);
+        return self::PLUGIN_NAME;
     }
 }
