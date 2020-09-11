@@ -1,7 +1,7 @@
 {
   "name": "srag/plugins/h5pcron",
   "description": "",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "ilias_plugin": {
     "id": "h5pcron",
     "name": "H5PCron",
