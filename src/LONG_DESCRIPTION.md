@@ -7,4 +7,4 @@ This is an additional Cronjob Plugin to the H5P RepositoryObject Plugin (https:/
 - Refresh hub list
 
 Cron:
-![Cron](./images/cron.png)
+![Cron](../doc/images/cron.png)
