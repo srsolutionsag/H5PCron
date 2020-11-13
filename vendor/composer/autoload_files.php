@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    '1dfc3aea0f9bffe3e2882666eefc09a3' => $baseDir . '/../../../Repository/RepositoryObject/H5P/vendor/autoload.php',
+    'b01bd7e9b0954dc0dd2a39f4453356c8' => $baseDir . '/../../../Repository/RepositoryObject/H5P/vendor/autoload.php',
 );
