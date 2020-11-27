@@ -1,7 +1,7 @@
 {
   "name": "srag/h5pcron",
-  "description": "",
-  "version": "1.2.1",
+  "description": "Clean old data from H5P contents that is no longer required",
+  "version": "1.2.2",
   "extra": {
     "ilias_plugin": {
       "id": "h5pcron",
