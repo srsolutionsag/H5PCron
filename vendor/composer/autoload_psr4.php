@@ -8,4 +8,5 @@ $baseDir = dirname($vendorDir);
 return array(
     'srag\\Plugins\\H5PCron\\' => array($baseDir . '/src'),
     'srag\\LibrariesNamespaceChanger\\' => array($vendorDir . '/srag/librariesnamespacechanger/src'),
+    'srag\\GeneratePluginInfosHelper\\H5PCron\\' => array($vendorDir . '/srag/generateplugininfoshelper/src'),
 );

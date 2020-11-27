@@ -1,13 +1,16 @@
 {
-  "name": "srag/plugins/h5pcron",
-  "description": "",
-  "version": "1.2.1",
-  "ilias_plugin": {
-    "id": "h5pcron",
-    "name": "H5PCron",
-    "ilias_min_version": "5.4.0",
-    "ilias_max_version": "6.999",
-    "slot": "Services/Cron/CronHook"
+  "name": "srag/h5pcron",
+  "description": "Clean old data from H5P contents that is no longer required",
+  "version": "1.2.2",
+  "extra": {
+    "ilias_plugin": {
+      "id": "h5pcron",
+      "name": "H5PCron",
+      "ilias_min_version": "5.4.0",
+      "ilias_max_version": "6.999",
+      "slot": "Services/Cron/CronHook"
+    },
+    "generate_plugin_readme_template": "SRAG_ILIAS_PLUGIN"
   },
   "type": "project",
   "keywords": [
@@ -30,6 +33,7 @@
   },
   "require": {
     "php": ">=7.0",
+    "srag/generateplugininfoshelper": ">=0.1.0",
     "srag/librariesnamespacechanger": ">=0.1.0"
   },
   "autoload": {
@@ -52,8 +56,8 @@
     "pre-autoload-dump": [
       "srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger::rewriteLibrariesNamespaces",
       "srag\\LibrariesNamespaceChanger\\PHP72Backport::PHP72Backport",
-      "srag\\LibrariesNamespaceChanger\\GeneratePluginPhpAndXml::generatePluginPhpAndXml",
-      "srag\\LibrariesNamespaceChanger\\UpdatePluginReadme::updatePluginReadme"
+      "srag\\GeneratePluginInfosHelper\\H5PCron\\GeneratePluginPhpAndXml::generatePluginPhpAndXml",
+      "srag\\GeneratePluginInfosHelper\\H5PCron\\GeneratePluginReadme::generatePluginReadme"
     ]
   }
 }

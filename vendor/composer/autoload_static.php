@@ -7,7 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit1ce8e39467b28a745351043e28c93faa
 {
     public static $files = array (
-        '1dfc3aea0f9bffe3e2882666eefc09a3' => __DIR__ . '/../..' . '/../../../Repository/RepositoryObject/H5P/vendor/autoload.php',
+        'b01bd7e9b0954dc0dd2a39f4453356c8' => __DIR__ . '/../..' . '/../../../Repository/RepositoryObject/H5P/vendor/autoload.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -15,6 +15,7 @@ class ComposerStaticInit1ce8e39467b28a745351043e28c93faa
         array (
             'srag\\Plugins\\H5PCron\\' => 21,
             'srag\\LibrariesNamespaceChanger\\' => 31,
+            'srag\\GeneratePluginInfosHelper\\H5PCron\\' => 39,
         ),
     );
 
@@ -27,16 +28,20 @@ class ComposerStaticInit1ce8e39467b28a745351043e28c93faa
         array (
             0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
         ),
+        'srag\\GeneratePluginInfosHelper\\H5PCron\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src',
+        ),
     );
 
     public static $classMap = array (
         'ilH5PCronPlugin' => __DIR__ . '/../..' . '/classes/class.ilH5PCronPlugin.php',
-        'srag\\LibrariesNamespaceChanger\\GeneratePluginPhpAndXml' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/GeneratePluginPhpAndXml.php',
+        'srag\\GeneratePluginInfosHelper\\H5PCron\\GeneratePluginPhpAndXml' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/GeneratePluginPhpAndXml.php',
+        'srag\\GeneratePluginInfosHelper\\H5PCron\\GeneratePluginReadme' => __DIR__ . '/..' . '/srag/generateplugininfoshelper/src/GeneratePluginReadme.php',
         'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
         'srag\\LibrariesNamespaceChanger\\PHP72Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP72Backport.php',
         'srag\\LibrariesNamespaceChanger\\PHP7Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/PHP7Backport.php',
         'srag\\LibrariesNamespaceChanger\\RemovePHP72Backport' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/RemovePHP72Backport.php',
-        'srag\\LibrariesNamespaceChanger\\UpdatePluginReadme' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/UpdatePluginReadme.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
