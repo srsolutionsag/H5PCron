@@ -47,8 +47,9 @@ The plugin consists of the following cron jobs:
 
 ## Adjustment suggestions
 
-* External users can report suggestions and bugs at https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_PLH5P
-* Adjustment suggestions by pull requests via github
+You can report bugs or suggestions at https://plugins.studer-raimann.ch/goto.php?target=uihk_srsu_PLH5P
+
+There is no guarantee this can be fixed or implemented
 
 ## ILIAS Plugin SLA
 
