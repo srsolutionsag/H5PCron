@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.3]
+- Update keywords
+
 ## [1.2.2]
 - Update readme
 
