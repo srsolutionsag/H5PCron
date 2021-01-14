@@ -1,7 +1,7 @@
 {
   "name": "srag/h5pcron",
   "description": "Clean old data from H5P contents that is no longer required",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "extra": {
     "ilias_plugin": {
       "id": "h5pcron",
@@ -14,9 +14,11 @@
   },
   "type": "project",
   "keywords": [
-    "ILIAS",
-    "Plugin",
-    "H5P"
+    "cron",
+    "h5p",
+    "ilias",
+    "job",
+    "plugin"
   ],
   "homepage": "https://github.com/studer-raimann/H5PCron",
   "license": "GPL-3.0-only",
