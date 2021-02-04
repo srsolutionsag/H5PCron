@@ -7,8 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'ilH5PCronPlugin' => $baseDir . '/classes/class.ilH5PCronPlugin.php',
-    'srag\\GeneratePluginInfosHelper\\H5PCron\\GeneratePluginPhpAndXml' => $vendorDir . '/srag/generateplugininfoshelper/src/GeneratePluginPhpAndXml.php',
-    'srag\\GeneratePluginInfosHelper\\H5PCron\\GeneratePluginReadme' => $vendorDir . '/srag/generateplugininfoshelper/src/GeneratePluginReadme.php',
     'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => $vendorDir . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
     'srag\\LibrariesNamespaceChanger\\PHP72Backport' => $vendorDir . '/srag/librariesnamespacechanger/src/PHP72Backport.php',
     'srag\\LibrariesNamespaceChanger\\PHP7Backport' => $vendorDir . '/srag/librariesnamespacechanger/src/PHP7Backport.php',
