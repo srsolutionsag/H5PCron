@@ -4,42 +4,17 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit1ce8e39467b28a745351043e28c93faa
+class ComposerStaticInit153d40d897fce39dc5c0a1c6aaead247
 {
-    public static $files = array (
-        'b01bd7e9b0954dc0dd2a39f4453356c8' => __DIR__ . '/../..' . '/../../../Repository/RepositoryObject/H5P/vendor/autoload.php',
-    );
-
-    public static $prefixLengthsPsr4 = array (
-        's' => 
-        array (
-            'srag\\Plugins\\H5PCron\\' => 21,
-            'srag\\LibrariesNamespaceChanger\\' => 31,
-        ),
-    );
-
-    public static $prefixDirsPsr4 = array (
-        'srag\\Plugins\\H5PCron\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src',
-        ),
-        'srag\\LibrariesNamespaceChanger\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src',
-        ),
-    );
-
     public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'ilH5PCronPlugin' => __DIR__ . '/../..' . '/classes/class.ilH5PCronPlugin.php',
-        'srag\\LibrariesNamespaceChanger\\LibrariesNamespaceChanger' => __DIR__ . '/..' . '/srag/librariesnamespacechanger/src/LibrariesNamespaceChanger.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit1ce8e39467b28a745351043e28c93faa::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit1ce8e39467b28a745351043e28c93faa::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit1ce8e39467b28a745351043e28c93faa::$classMap;
+            $loader->classMap = ComposerStaticInit153d40d897fce39dc5c0a1c6aaead247::$classMap;
 
         }, null, ClassLoader::class);
     }

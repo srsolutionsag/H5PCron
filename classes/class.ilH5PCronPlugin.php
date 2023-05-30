@@ -1,75 +1,94 @@
 <?php
 
-require_once __DIR__ . "/../vendor/autoload.php";
+declare(strict_types=1);
 
-use srag\DIC\H5P\DICTrait;
-use srag\Plugins\H5P\Utils\H5PTrait;
+use srag\Plugins\H5P\IContainer;
 
 /**
- * Class ilH5PCronPlugin
- *
- * @author studer + raimann ag - Team Custom 1 <support-custom1@studer-raimann.ch>
+ * @author       Thibeau Fuhrer <thibeau@sr.solutions>
+ * @noinspection AutoloadingIssuesInspection
  */
 class ilH5PCronPlugin extends ilCronHookPlugin
 {
+    public const PLUGIN_ID = "h5pcron";
 
-    use DICTrait;
-    use H5PTrait;
-
-    const PLUGIN_CLASS_NAME = ilH5PPlugin::class;
-    const PLUGIN_ID = "h5pcron";
-    const PLUGIN_NAME = "H5PCron";
     /**
-     * @var self|null
+     * @var IContainer
      */
-    protected static $instance = null;
-
+    protected $h5p_container;
 
     /**
-     * ilH5PCronPlugin constructor
+     * @throws LogicException if the main plugin is not installed.
      */
     public function __construct()
     {
         parent::__construct();
-    }
 
-
-    /**
-     * @return self
-     */
-    public static function getInstance() : self
-    {
-        if (self::$instance === null) {
-            self::$instance = new self();
+        if (!class_exists('ilH5PPlugin')) {
+            throw new LogicException("You cannot use this plugin without installing the main plugin first.");
         }
 
-        return self::$instance;
+        $this->h5p_container = ilH5PPlugin::getInstance()->getContainer();
     }
-
 
     /**
      * @inheritDoc
      */
-    public function getCronJobInstance(/*string*/ $a_job_id)/*: ?ilCronJob*/
+    public function getCronJobInstances(): array
     {
-        return self::h5p()->jobs()->factory()->newInstanceById($a_job_id);
+        if (!$this->isActive()) {
+            return [];
+        }
+
+        return [
+            $this->getCronJobInstance(ilH5PDeleteOldTmpFilesJob::CRON_JOB_ID),
+            $this->getCronJobInstance(ilH5PDeleteOldEventsJob::CRON_JOB_ID),
+            $this->getCronJobInstance(ilH5PRefreshLibrariesJob::CRON_JOB_ID),
+        ];
     }
 
+    /**
+     * @param string $a_job_id
+     * @inheritDoc
+     */
+    public function getCronJobInstance($a_job_id): ?ilCronJob
+    {
+        if (!$this->isActive()) {
+            return null;
+        }
+
+        switch ($a_job_id) {
+            case ilH5PDeleteOldTmpFilesJob::CRON_JOB_ID:
+                return new ilH5PDeleteOldTmpFilesJob(
+                    $this->h5p_container->getTranslator(),
+                    $this->h5p_container->getRepositoryFactory()->file()
+                );
+            case ilH5PDeleteOldEventsJob::CRON_JOB_ID:
+                return new ilH5PDeleteOldEventsJob(
+                    $this->h5p_container->getTranslator(),
+                    $this->h5p_container->getRepositoryFactory()->event()
+                );
+            case ilH5PRefreshLibrariesJob::CRON_JOB_ID:
+                return new ilH5PRefreshLibrariesJob(
+                    $this->h5p_container->getTranslator(),
+                    $this->h5p_container->getKernel()
+                );
+
+            default:
+                return null;
+        }
+    }
 
     /**
      * @inheritDoc
      */
-    public function getCronJobInstances() : array
+    public function getPluginName(): string
     {
-        return self::h5p()->jobs()->factory()->newInstances();
+        return "H5PCron";
     }
 
-
-    /**
-     * @inheritDoc
-     */
-    public function getPluginName() : string
+    public function getId(): string
     {
-        return self::PLUGIN_NAME;
+        return self::PLUGIN_ID;
     }
 }
