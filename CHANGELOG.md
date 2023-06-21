@@ -1,5 +1,10 @@
 # H5PCron Changelog
 
+## 3.0.2
+
+- Added new message box which appears if the main plugin (H5P) is not installed yet and the cronjobs are retrieved, to
+  inform administrators in the cron-manager about the missing cron jobs.
+
 ## 3.0.1
 
 - Fixed an issue where the main plugin (H5P) needed to be active during the update process, which lead to plugin-updates

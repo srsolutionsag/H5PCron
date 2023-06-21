@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once __DIR__ . "/vendor/autoload.php";
+require_once __DIR__ . "/../vendor/autoload.php";
 
 use srag\Plugins\H5P\IContainer;
 
@@ -58,7 +58,8 @@ class ilH5PCronPlugin extends ilCronHookPlugin
      */
     public function getCronJobInstances(): array
     {
-        if (!$this->isActive() || !$this->isMainPluginInstalled()) {
+        if (!$this->isMainPluginInstalled()) {
+            ilUtil::sendQuestion('You must install the H5P plugin before you can use the according cron jobs.');
             return [];
         }
 
@@ -75,7 +76,8 @@ class ilH5PCronPlugin extends ilCronHookPlugin
      */
     public function getCronJobInstance($a_job_id): ?ilCronJob
     {
-        if (!$this->isActive() || !$this->isMainPluginInstalled()) {
+        if (!$this->isMainPluginInstalled()) {
+            ilUtil::sendFailure('You must install the H5P plugin before you can use the according cron jobs.');
             return null;
         }
 
