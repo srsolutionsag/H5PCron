@@ -1,5 +1,10 @@
 # H5PCron Changelog
 
+## 3.0.1
+
+- Fixed an issue where the main plugin (H5P) needed to be active during the update process, which lead to plugin-updates
+  being broken via GUI.
+
 ## 3.0.0
 
 - Added compatibility with refactored main Plugin (https://github.com/srsolutionsag/H5P).

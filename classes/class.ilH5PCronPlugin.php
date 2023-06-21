@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . "/vendor/autoload.php";
+
 use srag\Plugins\H5P\IContainer;
 
 /**
@@ -10,7 +12,10 @@ use srag\Plugins\H5P\IContainer;
  */
 class ilH5PCronPlugin extends ilCronHookPlugin
 {
+    public const PLUGIN_NAME = "H5PCron";
     public const PLUGIN_ID = "h5pcron";
+
+    protected const H5P_MAIN_AUTOLOAD = __DIR__ . "/../../../../Repository/RepositoryObject/H5P/vendor/autoload.php";
 
     /**
      * @var IContainer
@@ -24,8 +29,12 @@ class ilH5PCronPlugin extends ilCronHookPlugin
     {
         parent::__construct();
 
-        if (!class_exists('ilH5PPlugin')) {
+        if (!file_exists(self::H5P_MAIN_AUTOLOAD)) {
             throw new LogicException("You cannot use this plugin without installing the main plugin first.");
+        }
+
+        if (!$this->isMainPluginLoaded()) {
+            require_once self::H5P_MAIN_AUTOLOAD;
         }
 
         $this->h5p_container = ilH5PPlugin::getInstance()->getContainer();
@@ -34,9 +43,22 @@ class ilH5PCronPlugin extends ilCronHookPlugin
     /**
      * @inheritDoc
      */
+    public function getPluginName(): string
+    {
+        return self::PLUGIN_NAME;
+    }
+
+    public function getId(): string
+    {
+        return self::PLUGIN_ID;
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getCronJobInstances(): array
     {
-        if (!$this->isActive()) {
+        if (!$this->isActive() || !$this->isMainPluginInstalled()) {
             return [];
         }
 
@@ -53,7 +75,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin
      */
     public function getCronJobInstance($a_job_id): ?ilCronJob
     {
-        if (!$this->isActive()) {
+        if (!$this->isActive() || !$this->isMainPluginInstalled()) {
             return null;
         }
 
@@ -79,16 +101,13 @@ class ilH5PCronPlugin extends ilCronHookPlugin
         }
     }
 
-    /**
-     * @inheritDoc
-     */
-    public function getPluginName(): string
+    private function isMainPluginLoaded(): bool
     {
-        return "H5PCron";
+        return class_exists('ilH5PPlugin');
     }
 
-    public function getId(): string
+    private function isMainPluginInstalled(): bool
     {
-        return self::PLUGIN_ID;
+        return $this->h5p_container->getRepositoryFactory()->general()->isMainPluginInstalled();
     }
 }
