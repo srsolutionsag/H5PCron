@@ -1,5 +1,9 @@
 # H5PCron Changelog
 
+## 4.0.0
+
+- Added ILIAS 8 compatibility.
+
 ## 3.0.2
 
 - Added new message box which appears if the main plugin (H5P) is not installed yet and the cronjobs are retrieved, to
