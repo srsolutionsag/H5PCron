@@ -63,11 +63,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin
             return [];
         }
 
-        return [
-            $this->getCronJobInstance(ilH5PDeleteOldTmpFilesJob::CRON_JOB_ID),
-            $this->getCronJobInstance(ilH5PDeleteOldEventsJob::CRON_JOB_ID),
-            $this->getCronJobInstance(ilH5PRefreshLibrariesJob::CRON_JOB_ID),
-        ];
+        return $this->h5p_container->getCronJobFactory()->getAll();
     }
 
     /**
@@ -81,26 +77,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin
             return null;
         }
 
-        switch ($a_job_id) {
-            case ilH5PDeleteOldTmpFilesJob::CRON_JOB_ID:
-                return new ilH5PDeleteOldTmpFilesJob(
-                    $this->h5p_container->getTranslator(),
-                    $this->h5p_container->getRepositoryFactory()->file()
-                );
-            case ilH5PDeleteOldEventsJob::CRON_JOB_ID:
-                return new ilH5PDeleteOldEventsJob(
-                    $this->h5p_container->getTranslator(),
-                    $this->h5p_container->getRepositoryFactory()->event()
-                );
-            case ilH5PRefreshLibrariesJob::CRON_JOB_ID:
-                return new ilH5PRefreshLibrariesJob(
-                    $this->h5p_container->getTranslator(),
-                    $this->h5p_container->getKernel()
-                );
-
-            default:
-                return null;
-        }
+        return $this->h5p_container->getCronJobFactory()->getInstance((string) $a_job_id);
     }
 
     private function isMainPluginLoaded(): bool
