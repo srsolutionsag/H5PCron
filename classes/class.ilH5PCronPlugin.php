@@ -62,11 +62,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin
             return [];
         }
 
-        return [
-            $this->getCronJobInstance(ilH5PDeleteOldTmpFilesJob::CRON_JOB_ID),
-            $this->getCronJobInstance(ilH5PDeleteOldEventsJob::CRON_JOB_ID),
-            $this->getCronJobInstance(ilH5PRefreshLibrariesJob::CRON_JOB_ID),
-        ];
+        return $this->h5p_container->getCronJobFactory()->getAll();
     }
 
     /**
@@ -79,28 +75,7 @@ class ilH5PCronPlugin extends ilCronHookPlugin
             $this->informUserAboutMissingCronJobs();
         }
 
-        switch ($jobId) {
-            case ilH5PDeleteOldTmpFilesJob::CRON_JOB_ID:
-                return new ilH5PDeleteOldTmpFilesJob(
-                    $this->h5p_container->getTranslator(),
-                    $this->h5p_container->getRepositoryFactory()->file(),
-                    new ilStrictCliCronManager($this->cron_manager),
-                );
-            case ilH5PDeleteOldEventsJob::CRON_JOB_ID:
-                return new ilH5PDeleteOldEventsJob(
-                    $this->h5p_container->getTranslator(),
-                    $this->h5p_container->getRepositoryFactory()->event(),
-                    new ilStrictCliCronManager($this->cron_manager)
-                );
-            case ilH5PRefreshLibrariesJob::CRON_JOB_ID:
-                return new ilH5PRefreshLibrariesJob(
-                    $this->h5p_container->getTranslator(),
-                    $this->h5p_container->getKernel()
-                );
-
-            default:
-                throw new OutOfBoundsException("Unknown cron job ID: $jobId");
-        }
+        return $this->h5p_container->getCronJobFactory()->getInstance((string) $a_job_id);
     }
 
     private function informUserAboutMissingCronJobs(): void
