@@ -1,5 +1,9 @@
 # H5PCron Changelog
 
+## 3.0.3
+
+- Adopted changes from main plugin v4.1.10 which introdues a new cron job factory.
+
 ## 3.0.2
 
 - Added new message box which appears if the main plugin (H5P) is not installed yet and the cronjobs are retrieved, to
