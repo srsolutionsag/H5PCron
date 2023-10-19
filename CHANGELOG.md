@@ -1,5 +1,9 @@
 # H5PCron Changelog
 
+## 4.0.1
+
+- Adopted changes from main plugin v5.0.8 which introdues a new cron job factory.
+
 ## 4.0.0
 
 - Added ILIAS 8 compatibility.
