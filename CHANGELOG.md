@@ -1,5 +1,9 @@
 # H5PCron Changelog
 
+## 4.0.2
+
+- Fixed an issue where the plugin could not be installed via CLI due to a missing dependency.
+
 ## 4.0.1
 
 - Adopted changes from main plugin v5.0.8 which introdues a new cron job factory.
