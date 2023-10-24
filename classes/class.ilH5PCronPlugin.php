@@ -23,10 +23,6 @@ class ilH5PCronPlugin extends ilCronHookPlugin
     protected $h5p_container;
 
     /**
-     * @var ilCronManager
-     */
-    protected $cron_manager;
-    /**
      * @throws LogicException if the main plugin is not installed.
      */
     public function __construct(
@@ -49,7 +45,6 @@ class ilH5PCronPlugin extends ilCronHookPlugin
         $plugin = $component_factory->getPlugin(ilH5PPlugin::PLUGIN_ID);
 
         $this->h5p_container = $plugin->getContainer();
-        $this->cron_manager = $DIC->cron()->manager();
     }
 
     /**
@@ -66,16 +61,21 @@ class ilH5PCronPlugin extends ilCronHookPlugin
     }
 
     /**
-     * @param string $a_job_id
      * @inheritDoc
      */
     public function getCronJobInstance(string $jobId): ilCronJob
     {
         if (!$this->isMainPluginInstalled()) {
             $this->informUserAboutMissingCronJobs();
+            throw new OutOfBoundsException("H5P main plugin is not installed.");
         }
 
-        return $this->h5p_container->getCronJobFactory()->getInstance((string) $a_job_id);
+        $cron_job = $this->h5p_container->getCronJobFactory()->getInstance($jobId);
+        if (null === $cron_job) {
+            throw new OutOfBoundsException("Could not find any cron-job for id '$jobId'.");
+        }
+
+        return $cron_job;
     }
 
     private function informUserAboutMissingCronJobs(): void
