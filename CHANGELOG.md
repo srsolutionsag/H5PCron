@@ -1,5 +1,9 @@
 # H5PCron Changelog
 
+## 5.0.0
+
+- Added ILIAS 9 compatibility.
+
 ## 4.0.2
 
 - Fixed an issue where the plugin could not be installed via CLI due to a missing dependency.
